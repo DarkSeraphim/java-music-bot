@@ -1,26 +1,26 @@
 package ovh.not.javamusicbot;
 
 public class Config {
-    boolean dev;
-    public boolean patreon;
-    String token;
-    public String[] owners;
-    public String[] managers;
-    String regex;
-    String prefix;
-    String game;
-    public String invite;
-    public String about;
-    String join;
-    String carbon;
-    String dbots;
-    String dbotsOrg;
-    String discordServer;
-    String supporterRole;
-    String superSupporterRole;
-    String superDuperSupporterRole;
-    public String owoKey;
-    String statusWebhook;
-    String statsDHost;
-    int statsDPort;
+    final boolean dev;
+    public final boolean patreon;
+    final String token;
+    public final String[] owners;
+    public final String[] managers;
+    final String regex;
+    final String prefix;
+    final String game;
+    public final String invite;
+    public final String about;
+    final String join;
+    final String carbon;
+    final String dbots;
+    final String dbotsOrg;
+    final String discordServer;
+    final String supporterRole;
+    final String superSupporterRole;
+    final String superDuperSupporterRole;
+    public final String owoKey;
+    final String statusWebhook;
+    final String statsDHost;
+    final int statsDPort;
 }
