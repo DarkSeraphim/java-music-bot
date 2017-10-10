@@ -1,5 +1,7 @@
 package ovh.not.javamusicbot;
 
+import java.util.Set;
+
 public class Config {
     final boolean dev;
     public final boolean patreon;
