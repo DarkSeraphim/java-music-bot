@@ -4,8 +4,8 @@ public class Config {
     final boolean dev;
     public final boolean patreon;
     final String token;
-    public final String[] owners;
-    public final String[] managers;
+    public final Set<String> owners;
+    public final Set<String> managers;
     final String regex;
     final String prefix;
     final String game;
