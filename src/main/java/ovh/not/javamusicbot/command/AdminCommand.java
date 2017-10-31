@@ -263,13 +263,22 @@ public class AdminCommand extends Command {
         public void run(Context context) {
             try {
                 AdminCommand.this.bot.reloadConfigs();
-                RadioCommand.reloadUsageMessage(AdminCommand.this.bot);
+                context.reply("Configs reloaded!");
             } catch (Exception e) {
                 logger.error("error performing reload command", e);
                 context.reply("Could not reload configs: " + e.getMessage());
                 return;
             }
-            context.reply("Configs reloaded!");
+            bot.getRadioAPI().getRadios((radioList, throwable) -> {
+                if (throwable != null) {
+                    logger.error("Error refreshing radio stations", throwable);
+                    context.reply("Could not refresh radio stations: " + throwable.getMessage());
+                    // NO-OP (automatic reload, only developers might need to know)
+                } else {
+                    RadioCommand.reloadUsageMessage(radioList);
+                    context.reply("Radio stations reloaded");
+                }
+            });
         }
     }
 

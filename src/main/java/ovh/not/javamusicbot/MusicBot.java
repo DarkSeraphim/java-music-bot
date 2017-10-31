@@ -12,6 +12,7 @@ import okhttp3.Request;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ovh.not.javamusicbot.audio.GuildAudioManager;
+import ovh.not.javamusicbot.radio.RadioAPI;
 import ovh.not.javamusicbot.utils.PermissionReader;
 
 import javax.security.auth.login.LoginException;
@@ -53,11 +54,14 @@ public final class MusicBot {
 
     private GuildAudioManager guildsManager;
 
+    private RadioAPI radioAPI;
+
     public static void main(String[] args) {
         MusicBot bot = new MusicBot();
         Config config = bot.getConfigs().config;
         bot.permissionReader = new PermissionReader(bot);
         bot.guildsManager = new GuildAudioManager(bot);
+        bot.radioAPI = new RadioAPI(MusicBot.HTTP_CLIENT);
 
         DefaultShardManagerBuilder builder = new DefaultShardManagerBuilder()
                 .setReconnectQueue(new SessionReconnectQueue())
@@ -114,6 +118,10 @@ public final class MusicBot {
 
     public GuildAudioManager getGuildsManager() {
         return guildsManager;
+    }
+
+    public RadioAPI getRadioAPI() {
+        return radioAPI;
     }
 
     public class ConfigLoadResult {

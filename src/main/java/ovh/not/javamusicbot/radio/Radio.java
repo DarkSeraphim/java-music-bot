@@ -20,4 +20,8 @@ public class Radio {
     public String getName() {
         return name;
     }
+
+    public String getURL() {
+        return url;
+    }
 }

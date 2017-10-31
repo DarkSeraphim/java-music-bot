@@ -29,7 +29,7 @@ public class RadioAPI {
 
         private final int total = -1;
 
-        public boolean isValid() {
+        boolean isValid() {
             return total >= 0 && results != null;
         }
     }
@@ -106,7 +106,7 @@ public class RadioAPI {
                         .getAsync(radioConsumer);
     }
     
-    public Consumer<BiConsumer<Radio, Throwable>> getRadioConsumer(String name) {
+    private Consumer<BiConsumer<Radio, Throwable>> getRadioConsumer(String name) {
         return radioConsumer -> {
             Request request = new Request.Builder()
                                          .url(GET_RADIO_BY_NAME + name)
